@@ -237,7 +237,7 @@ function uploadFiles(file, action, Max){
     formdata.set('pck_id', $('#pck_id').val());
     formdata.set('save', action);
     formdata.set('id', $('#id').val());
-    formdata.set('description', $('#field-description').val());    
+    formdata.set('description', "");
     formdata.set('_csrf_token', csrf_value);
     var oldProgress = 0;
     reqUpload.upload.addEventListener('progress', function(e){
@@ -278,7 +278,7 @@ function uploadLink(action){
     formdata.set('save', action);
     formdata.set('name', $('#urlName').val());
     formdata.set('id', $('#id').val());
-    formdata.set('description', $('#field-description').val());
+    formdata.set('description', "");
     formdata.set('_csrf_token', csrf_value);
     var req = new XMLHttpRequest();
     req.onreadystatechange = function() {
