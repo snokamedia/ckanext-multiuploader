@@ -15,8 +15,10 @@ var uploadMaxLimit = parseInt($('#upload_limit').val());
 if (uploadMaxLimit === 0){
     uploadMaxLimit = parseFloat($('#upload_limit').val());
 }
-$(document).ready(function(){
+// Get the csrf value from the page meta tag
+var csrf_value = $('meta[name=_csrf_token]').attr('content');
 
+$(document).ready(function(){
 
     /**
      * click the upload/remove button
@@ -237,6 +239,7 @@ function uploadFiles(file, action, Max){
     formdata.set('save', action);
     formdata.set('id', $('#id').val());
     formdata.set('description', $('#field-description').val());    
+    formdata.set('_csrf_token', csrf_value);
     var oldProgress = 0;
     reqUpload.upload.addEventListener('progress', function(e){
         let progress = (Math.ceil(e.loaded/(e.total * 1.1) * 100) / Max);
@@ -277,6 +280,7 @@ function uploadLink(action){
     formdata.set('name', $('#urlName').val());
     formdata.set('id', $('#id').val());
     formdata.set('description', $('#field-description').val());
+    formdata.set('_csrf_token', csrf_value);
     var req = new XMLHttpRequest();
     req.onreadystatechange = function() {
         if (req.readyState == XMLHttpRequest.DONE && req.status === 200) {       

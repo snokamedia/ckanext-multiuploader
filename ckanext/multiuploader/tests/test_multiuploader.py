@@ -29,8 +29,9 @@ class TestUpload(object):
             'save': 'go-metadata',
             'id': '',
             'description': 'Test Test',
+            '_csrf_token': h.get_csrf_token(),
         }
-        self.upload_url = h.url_for('multiuploader.upload_resources')  
+        self.upload_url = h.url_for('multiuploader.upload_resources')
 
 
 
