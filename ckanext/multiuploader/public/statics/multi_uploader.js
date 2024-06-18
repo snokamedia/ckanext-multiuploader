@@ -153,15 +153,14 @@ $(document).ready(function(){
             $('#progress-bar-container').show();
             $('#upload-error-container').hide();
             $('#file-danger-size').hide();
-            $('#progress-modal').modal({
+            var progressModal = new bootstrap.Modal(document.getElementById('progress-modal'), {
                 backdrop: 'static',
-                keyboard: false,
-                show: true 
-            });           
+                keyboard: false
+            });
+            progressModal.show();
             for(var i = 0; i < fileList.length; i++){
-                // upload a file
                 uploadFiles(fileList[i], sBtn, fileList.length);   
-            } 
+            }
         }
         else{ 
             if(forbiddenLimit){
@@ -318,11 +317,12 @@ function cancelAlreadyUploaded(){
     var req = new XMLHttpRequest();
     req.onreadystatechange = function() {
         if (req.readyState == XMLHttpRequest.DONE && req.status === 200) {       
-            $('#progress-modal').modal('hide');                            
+            var progressModal = bootstrap.Modal.getInstance(document.getElementById('progress-modal'));
+            progressModal.hide();                           
         }
     }
-    req.open("POST", dest_url)
-    req.send(formdata)
+    req.open("POST", dest_url);
+    req.send(formdata);
     return 1;
 }
 
