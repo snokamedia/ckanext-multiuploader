@@ -6,7 +6,6 @@
 .fakebtn:active:focus,
 .fakebtn:focus
 {
-    width: 80px;
     background-color: white ;
     color: black ;
     font-size: 14px ;
@@ -53,14 +52,14 @@
     padding: 5px;
     margin-bottom: 10px;
 }
-#fileNameMessage{
-    position:absolute;
-    left: 50%;
-    top:50%;
+#fileNameMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-style: italic;
     color: #9A9A9A;
-    width: 40%;
-    transform: translate(-50%,-50%);
+    text-align: center;
+    margin: 0 auto;
 }
 #file-danger, #file-danger-size{
     display: none;
