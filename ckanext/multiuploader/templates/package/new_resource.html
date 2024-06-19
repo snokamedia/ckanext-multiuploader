@@ -1,6 +1,16 @@
 {% ckan_extends %}
 
 
+{% block styles %}
+  {{ super() }}
+  {% asset 'ckanext-multiuploader/my-css' %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% asset 'ckanext-multiuploader/my-js' %}
+{% endblock %}
+
 {% block form %}
     {% snippet 'snippets/new_resource_form.html', 
     data=data, pkg_dict=pkg_dict,  errors=errors, error_summary=error_summary, include_metadata=false, pkg_name=pkg_name, stage=stage, dataset_type=dataset_type %}
