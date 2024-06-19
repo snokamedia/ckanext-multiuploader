@@ -1,14 +1,5 @@
 {% ckan_extends %}
 
-{% block styles %}
-  {{ super() }}
-  {% asset 'ckanext-multiuploader/my-css' %}
-{% endblock %}
-
-{% block scripts %}
-  {{ super() }}
-  {% asset 'ckanext-multiuploader/my-js' %}
-{% endblock %}
 
 {% block form %}
     {% snippet 'snippets/new_resource_form.html', 
